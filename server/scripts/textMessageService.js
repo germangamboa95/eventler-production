@@ -16,7 +16,6 @@ const sendTexts = async (numbersArr, msg) => {
           to: `+1${item}`,
           from: "+13212043039" // From a valid Twilio number
         });
-        return await x;
       } catch (error) {
         return error;
       }

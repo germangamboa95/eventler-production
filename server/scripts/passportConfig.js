@@ -25,7 +25,7 @@ passport.use(
       clientID:
        process.env.GOOG_CLIENT,
       clientSecret: process.env.GOOG_SECRET,
-      callbackURL: "https://eventler.app/api/api/auth/google/callback",
+      callbackURL: "http://localhost:3000/api/auth/google/callback",
       passReqToCallback: true
     },
     function(req, accessToken, refreshToken, profile, done) {
@@ -40,7 +40,7 @@ passport.use(
     {
       clientID: "191912984965599",
       clientSecret: process.env.FB_SECRET,
-      callbackURL: "https://eventler.app/api/api/auth/facebook/callback",
+      callbackURL: "http://localhost:3000/api/auth/facebook/callback",
       passReqToCallback: true
     },
     function(req, accessToken, refreshToken, profile, done) {

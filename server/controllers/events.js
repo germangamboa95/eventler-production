@@ -172,14 +172,15 @@ module.exports = {
   updateEvent: async (req, res) => {
     const field = req.body.field;
     const value = req.body.value;
+    const updater = req.body.updates; 
     const eventId = req.body.event_id;
-
+    console.log(updater)
     try {
       if (field === "_id") throw new Error("Cannot change _id!");
 
       const dbData = await db.Event.findByIdAndUpdate(
         { _id: eventId },
-        { [field]: value },
+         updater,
         { new: true }
       );
       res.json(dbData);
