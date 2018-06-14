@@ -1,7 +1,7 @@
 const db = require("../models");
 const jwt = require("jsonwebtoken");
 const nodemail = require("../scripts/nodeMailer");
-
+const texter = require('../scripts/textMessageService');
 module.exports = {
   sendEmail: async (req, res) => {
     console.log(req.body)
@@ -26,7 +26,7 @@ module.exports = {
       console.log(email)
       const emailRes = await nodemail.sendSignUpConfirm(email, e_name); 
       res.json(emailRes);
-
+ 
   },
   sendInvite: async (req, res) => {
     console.log(req.body)
@@ -47,9 +47,19 @@ module.exports = {
       }
     });
     userData = userData.map(item => item.cell)
-    const emailRes = await nodemail.sendSingle(userData.join(','), title, msg);
+    const emailRes = await texter(userData, `${title}: ${msg}`);
    
     res.send(emailRes);
+  },
+  sendTextLink: async (req, res) => {
+    console.log(req.body)
+    const recievers = req.body.recievers;
+    const title = req.body.title;
+    const msg = req.body.msg;
+
+    const TextRes = await texter(recievers, `${title}: ${msg}`);
+   
+    res.send(TextRes);
   }
 
 };
