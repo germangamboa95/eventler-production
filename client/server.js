@@ -7,8 +7,9 @@ const app = express();
 // Middlewares
 app.use(morgan("dev"));
 
+app.use('/', express.static('static'))
 
-app.use('/',serveStatic(__dirname + "/build"));
+app.use('*',serveStatic(__dirname + "/build"));
 //  Error Catcher
 app.use(function(error, req, res, next) {
   console.log(error);
