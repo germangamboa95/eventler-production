@@ -9,4 +9,4 @@ router.post('/email/send/link', controllers.communications.sendInvite);
 router.post('/email/send/confirm/signup', controllers.communications.sendConfirm);
 router.post('/text/send', controllers.communications.sendText)
 router.post('/text/send/invite', controllers.communications.sendTextLink)
-module.exports = router; 
+module.exports = router;   

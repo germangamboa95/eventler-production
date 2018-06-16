@@ -33,3 +33,4 @@ router.post('/event/done', controllers.events.eventCompleted)
 
 router.post('/event/checkin', controllers.events.checkInToggle)
 module.exports = router;
+ 
