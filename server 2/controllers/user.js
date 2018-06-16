@@ -39,7 +39,7 @@ module.exports = {
     const payload = { id: req.dbData.id };
     const tokenSigned = jwt.sign(payload, process.env.SECRET_OR_KEY);
     res.redirect(
-      `http://localhost:3001?token=${tokenSigned}&done=${req.sf}&ui=${
+      `https://eventler.app?token=${tokenSigned}&done=${req.sf}&ui=${
         req.dbData._id
       }`
     );
